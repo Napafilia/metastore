@@ -27,6 +27,7 @@ struct metasettings {
 	bool do_emptydirs;       /* should empty dirs be recreated? */
 	bool do_removeemptydirs; /* should new empty dirs be removed? */
 	bool do_git;             /* should .git dirs be processed? */
+	bool do_hg;              /* should .hg dirs be processed? */
 };
 
 /* Convenient typedef for immutable settings */

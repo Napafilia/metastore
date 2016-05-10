@@ -41,6 +41,7 @@ static struct metasettings settings = {
 	.do_emptydirs = false,
 	.do_removeemptydirs = false,
 	.do_git = false,
+	.do_hg = false,
 };
 
 /* Used to create lists of dirs / other files which are missing in the fs */
@@ -429,6 +430,7 @@ usage(const char *arg0, const char *message)
 "  -e, --empty-dirs         Recreate missing empty directories\n"
 "  -E, --remove-empty-dirs  Remove extra empty directories\n"
 "  -g, --git                Do not omit .git directories\n"
+"  -H, --hg                 Do not omit .hg directories\n"
 "  -f, --file=FILE          Set metadata file (" METAFILE " by default)\n"
 	    );
 
@@ -449,6 +451,7 @@ static struct option long_options[] = {
 	{ "empty-dirs",        no_argument,       NULL, 'e' },
 	{ "remove-empty-dirs", no_argument,       NULL, 'E' },
 	{ "git",               no_argument,       NULL, 'g' },
+	{ "hg",                no_argument,       NULL, 'H' },
 	{ "file",              required_argument, NULL, 'f' },
 	{ NULL, 0, NULL, 0 }
 };
@@ -484,6 +487,7 @@ main(int argc, char **argv)
 		case 'E': /* remove-empty-dirs */ settings.do_removeemptydirs = true;
 			                              break;
 		case 'g': /* git */               settings.do_git = true;        break;
+		case 'H': /* mercurial */         settings.do_hg = true;         break;
 		case 'f': /* file */              settings.metafile = optarg;    break;
 		default:
 			usage(argv[0], "unknown option");
