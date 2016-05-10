@@ -358,7 +358,7 @@ mentries_recurse(const char *path, struct metahash *mhash, msettings *st)
 		while ((dent = readdir(dir))) {
 			if (!strcmp(dent->d_name, ".") ||
 			    !strcmp(dent->d_name, "..") ||
-			    (!st->do_hg && !strcmp(dent->d_name, ".hg"))
+			    (!st->do_hg && !strcmp(dent->d_name, ".hg")) ||
 			    (!st->do_git && !strcmp(dent->d_name, ".git"))
 			   )
 				continue;
